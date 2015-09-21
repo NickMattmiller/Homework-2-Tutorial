@@ -4,11 +4,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView mainTextView;
+    Button mainButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
         mainTextView = (TextView) findViewById(R.id.main_textview);
         mainTextView.setText("Set in Java");
+        mainButton = (Button) findViewById(R.id.main_button);
+        mainButton.setOnClickListener(this);
     }
 
     @Override
@@ -26,4 +31,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onClick(View v) {
+        mainTextView.setText("Button pressed!");
+    }
 }
